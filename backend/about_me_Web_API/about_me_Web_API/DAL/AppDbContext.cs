@@ -1,4 +1,4 @@
-﻿using about_me_Web_API.Models;
+﻿using about_me_Web_API.EntityModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,5 +15,8 @@ namespace about_me_Web_API.DAL
         }
 
         public DbSet<EventDetail> EventDetails { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        //public DbSet<File> Files { get; set; }
+        public DbSet<Header> Headers { get; set; }
     }
 }

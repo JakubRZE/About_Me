@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace about_me_Web_API.Models
+namespace about_me_Web_API.IRepositories
 {
-    public class EventDetail
+    public interface ICategoryRepository
     {
+        void GetAllCategory();
     }
 }
