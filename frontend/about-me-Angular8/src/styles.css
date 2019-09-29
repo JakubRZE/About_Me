@@ -1,41 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:800&display=swap');
 
 body{
-    background-color: #e9ecef;
-    font-family: 'Josefin Sans', sans-serif;
+    background-color:#3a3939;
+    font-family: 'Roboto', sans-serif;
 }
-
-h4,h2{
-    letter-spacing: 2px;
-    font-weight: bolder;
-}
-
-.profile{
-    max-width: 80px;
-    max-height: 80px;
-}
-
-hr {
-    width: 5rem;
-    margin-bottom: 1rem;
-}
-
-.mr-4r{
-    margin-right: 4rem;
-}
-
-.container{
-    max-width: 900px;
-}
-
-@media (max-width: 360px) {
-    .mr-4r {
-        margin-right: 0;
-    }
-    .profile{
-        max-width: 55px;
-        max-height: 55px;
-    }
-  }
