@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using about_me_Web_API.DAL;
 using about_me_Web_API.EntityModels;
 using about_me_Web_API.IRepositories;
+using about_me_Web_API.ViewModels;
 
 namespace about_me_Web_API.Controllers
 {
@@ -15,101 +16,110 @@ namespace about_me_Web_API.Controllers
     [ApiController]
     public class TimelineController : ControllerBase
     {
-        private readonly AppDbContext _context;
+   
 
         private readonly ICategoryRepository _categoryRepository;
         private readonly IEventDetailRepository _eventDetailsRepository;
         private readonly IHeaderRepository _headerRepository;
 
 
-        public TimelineController(AppDbContext context, ICategoryRepository categoryRepository, IEventDetailRepository eventDetailsRepository, IHeaderRepository headerRepository)
+        public TimelineController(ICategoryRepository categoryRepository, IEventDetailRepository eventDetailsRepository, IHeaderRepository headerRepository)
         {
-            _context = context;
             _categoryRepository = categoryRepository;
             _eventDetailsRepository = eventDetailsRepository;
             _headerRepository = headerRepository;
         }
 
+
         // GET: api/Timeline
+        [Route("api/Timeline/Header")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EventDetail>>> GetEventDetails()
+        public async Task<HeaderVM> GetHeader()
         {
-            return await _context.EventDetails.ToListAsync();
+            return await _headerRepository.GetHeaderAsync();
         }
 
-        // GET: api/Timeline/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<EventDetail>> GetEventDetail(int id)
-        {
-            var eventDetail = await _context.EventDetails.FindAsync(id);
 
-            if (eventDetail == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Timeline
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<EventDetail>>> GetEventDetails()
+        //{
+        //    return await _context.EventDetails.ToListAsync();
+        //}
 
-            return eventDetail;
-        }
+        //// GET: api/Timeline/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<EventDetail>> GetEventDetail(int id)
+        //{
+        //    var eventDetail = await _context.EventDetails.FindAsync(id);
 
-        // PUT: api/Timeline/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEventDetail(int id, EventDetail eventDetail)
-        {
-            if (id != eventDetail.Id)
-            {
-                return BadRequest();
-            }
+        //    if (eventDetail == null)
+        //    {
+        //        return NotFound(); 
+        //    }
 
-            _context.Entry(eventDetail).State = EntityState.Modified;
+        //    return eventDetail;
+        //}
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EventDetailExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //// PUT: api/Timeline/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutEventDetail(int id, EventDetail eventDetail)
+        //{
+        //    if (id != eventDetail.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            return NoContent();
-        }
+        //    _context.Entry(eventDetail).State = EntityState.Modified;
 
-        // POST: api/Timeline
-        [HttpPost]
-        public async Task<ActionResult<EventDetail>> PostEventDetail(EventDetail eventDetail)
-        {
-            _context.EventDetails.Add(eventDetail);
-            await _context.SaveChangesAsync();
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!EventDetailExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtAction("GetEventDetail", new { id = eventDetail.Id }, eventDetail);
-        }
+        //    return NoContent();
+        //}
 
-        // DELETE: api/Timeline/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<EventDetail>> DeleteEventDetail(int id)
-        {
-            var eventDetail = await _context.EventDetails.FindAsync(id);
-            if (eventDetail == null)
-            {
-                return NotFound();
-            }
+        //// POST: api/Timeline
+        //[HttpPost]
+        //public async Task<ActionResult<EventDetail>> PostEventDetail(EventDetail eventDetail)
+        //{
+        //    _context.EventDetails.Add(eventDetail);
+        //    await _context.SaveChangesAsync();
 
-            _context.EventDetails.Remove(eventDetail);
-            await _context.SaveChangesAsync();
+        //    return CreatedAtAction("GetEventDetail", new { id = eventDetail.Id }, eventDetail);
+        //}
 
-            return eventDetail;
-        }
+        //// DELETE: api/Timeline/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<EventDetail>> DeleteEventDetail(int id)
+        //{
+        //    var eventDetail = await _context.EventDetails.FindAsync(id);
+        //    if (eventDetail == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-        private bool EventDetailExists(int id)
-        {
-            return _context.EventDetails.Any(e => e.Id == id);
-        }
+        //    _context.EventDetails.Remove(eventDetail);
+        //    await _context.SaveChangesAsync();
+
+        //    return eventDetail;
+        //}
+
+        //private bool EventDetailExists(int id)
+        //{
+        //    return _context.EventDetails.Any(e => e.Id == id);
+        //}
     }
 }
