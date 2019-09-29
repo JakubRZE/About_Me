@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using about_me_Web_API.DAL;
+using about_me_Web_API.IRepositories;
+using about_me_Web_API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +39,13 @@ namespace about_me_Web_API
                 if (resolver != null)
                     (resolver as DefaultContractResolver).NamingStrategy = null;
             });
+
+            services.AddTransient<IHeaderRepository, HeaderRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IEventDetailRepository, EventDetailRepository>();
+
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +55,11 @@ namespace about_me_Web_API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(options =>
+            options.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseMvc();
         }

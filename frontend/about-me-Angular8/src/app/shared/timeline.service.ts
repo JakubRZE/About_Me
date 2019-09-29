@@ -8,12 +8,12 @@ import { IHeader } from '../interface/IHeader';
   providedIn: 'root'
 })
 export class TimelineService {
-  private headerUrl = 'http://localhost:43487/api/Timeline';
+  private rootUrl = 'http://localhost:59695/api';
 
   constructor(private http: HttpClient) { }
 
   getHeader(): Observable<IHeader> {
-    return this.http.get<IHeader>(this.headerUrl).pipe(
+    return this.http.get<IHeader>(this.rootUrl + "/headers").pipe(
       tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
