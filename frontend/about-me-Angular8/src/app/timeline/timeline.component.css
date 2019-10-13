@@ -4,3 +4,14 @@
     object-fit: cover;
     object-position: center center;
 }
+.rorate-r:hover{
+    transform: rotate(15deg);
+}
+.rorate-l:hover{
+    transform: rotate(-15deg);
+}
+
+.head-hover:hover{
+    background-color: azure;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 <div class="row text-center">
-    <div class="col-md-3" *ngFor='let head of timelineHeaders'>
-        <img class="bd-placeholder-img rounded-circle img-header"
+    <div class="col-md-3 head-hover" *ngFor='let head of timelineHeaders; let i = index'  ng-click="loadEvents(head)">
+        <img class="bd-placeholder-img rounded-circle img-header pt-3"
+        [class.rorate-r]="i % 2 == 0"
+        [class.rorate-l]="i % 2 != 0"
         [src]='head.img'
         [title]='head.title'>
         <h2>{{head.title}}</h2>
