@@ -34,12 +34,13 @@ export class TimelineComponent implements OnInit {
     }
   ];
 
-
-
   constructor() { }
 
   ngOnInit() {
   }
 
+  loadEvents(head: string): void {
+    
+  }
 
 }
