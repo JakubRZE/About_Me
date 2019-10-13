@@ -1,11 +1,5 @@
-.photo-holder {
-    padding: 1rem;
-}
-
-@media (max-width: 600px) {
-    .photo-holder {
-        padding: 0;
-        width: 0;
-        height: 0;
+@media (max-width: 574px) {
+    .profile-title {
+        text-align: center;
     }
-}
+} 

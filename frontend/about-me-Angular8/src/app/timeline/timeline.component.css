@@ -1,0 +1,6 @@
+.img-header{
+    width:140px; 
+    height:140px;
+    object-fit: cover;
+    object-position: center center;
+}
