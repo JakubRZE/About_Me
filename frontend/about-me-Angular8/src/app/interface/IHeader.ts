@@ -1,5 +1,5 @@
 export interface IHeader {
     Name: string;
-    Description: number;
+    Description: string;
     Avatar: string;
 }

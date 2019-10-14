@@ -1,12 +1,12 @@
 <div class="row text-center">
-    <div class="col-md-3 category-hover" *ngFor='let category of timelineCategories; let i = index'  ng-click="loadEvents(head)">
+    <div class="col-md-3 category-hover" *ngFor='let category of categories; let i = index'  ng-click="loadEvents(head)">
         <img class="bd-placeholder-img rounded-circle category-img pt-3"
         [class.rorate-r]="i % 2 == 0"
         [class.rorate-l]="i % 2 != 0"
-        [src]='category.img'
-        [title]='category.title'>
-        <h2>{{category.title}}</h2>
-        <p>{{category.description}}</p>
+        src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201810/online-3412473_1920.jpeg?meGHIUut1mybIL3pem8eWqk34osmW3Zi"
+        [title]='category.Title'>
+        <h2>{{category.Title}}</h2>
+        <p>{{category.Description}}</p>
     </div>
 </div>
 <hr class="featurette-divider">

@@ -25,7 +25,7 @@ namespace about_me_Web_API.Repositories
             {
                 Name = h.Name,
                 Description = h.Description,
-                Avatar = h.Avatar
+                AvatarUrl = h.Avatar.ToString()
             }).SingleAsync();
 
             return result;

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using about_me_Web_API.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace about_me_Web_API.Repositories
 {
@@ -16,9 +18,17 @@ namespace about_me_Web_API.Repositories
             _appDbContext = appDbContext;
         }
 
-        public void GetAllCategory()
+        public async Task<IList<CategoryVM>> GetAllCategoriesAsync()
         {
-            throw new NotImplementedException();
+            var result = await _appDbContext.Categories.Select(c => new CategoryVM
+            {
+                Id = c.Id,
+                Title = c.Title,
+                Description = c.Description,
+                AvatarUrl = c.Avatar.ToString()
+            }).ToListAsync();
+
+            return result;
         }
     }
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { IHeader } from '../interface/IHeader';
+import { ICategory } from '../interface/ICategory';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,13 @@ export class TimelineService {
 
   getHeader(): Observable<IHeader> {
     return this.http.get<IHeader>(this.rootUrl + "/headers").pipe(
+      tap(data => console.log('Response: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getCategories(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>(this.rootUrl + "/categories").pipe(
       tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );

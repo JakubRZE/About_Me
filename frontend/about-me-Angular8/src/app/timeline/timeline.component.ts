@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TimelineService } from '../shared/timeline.service';
+import { ICategory } from '../interface/ICategory';
 
 @Component({
   selector: 'app-timeline',
@@ -34,13 +36,16 @@ export class TimelineComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  errorMessage = '';
+  categories: ICategory[] = [];
 
-  ngOnInit() {
-  }
+  constructor(private timelineService: TimelineService) { }
 
-  loadEvents(head: string): void {
-    
+  ngOnInit(): void {
+    this.timelineService.getCategories().subscribe({
+      next: categories => this.categories = categories,
+      error: err => this.errorMessage = err
+    });
   }
 
 }
