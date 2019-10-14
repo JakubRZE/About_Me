@@ -1,12 +1,12 @@
 <div class="row text-center">
-    <div class="col-md-3 head-hover" *ngFor='let head of timelineHeaders; let i = index'  ng-click="loadEvents(head)">
-        <img class="bd-placeholder-img rounded-circle img-header pt-3"
+    <div class="col-md-3 category-hover" *ngFor='let category of timelineCategories; let i = index'  ng-click="loadEvents(head)">
+        <img class="bd-placeholder-img rounded-circle category-img pt-3"
         [class.rorate-r]="i % 2 == 0"
         [class.rorate-l]="i % 2 != 0"
-        [src]='head.img'
-        [title]='head.title'>
-        <h2>{{head.title}}</h2>
-        <p>{{head.description}}</p>
+        [src]='category.img'
+        [title]='category.title'>
+        <h2>{{category.title}}</h2>
+        <p>{{category.description}}</p>
     </div>
 </div>
 <hr class="featurette-divider">

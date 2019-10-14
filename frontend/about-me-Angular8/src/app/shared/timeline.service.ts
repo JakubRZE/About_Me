@@ -12,12 +12,12 @@ export class TimelineService {
 
   constructor(private http: HttpClient) { }
 
-  // getHeader(): Observable<IHeader> {
-  //   return this.http.get<IHeader>(this.rootUrl + "/headers").pipe(
-  //     tap(data => console.log('Response: ' + JSON.stringify(data))),
-  //     catchError(this.handleError)
-  //   );
-  // }
+  getHeader(): Observable<IHeader> {
+    return this.http.get<IHeader>(this.rootUrl + "/headers").pipe(
+      tap(data => console.log('Response: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
 
   // getProductById(id: number): Observable<IProduct | undefined> {
   //   return this.getProducts().pipe(

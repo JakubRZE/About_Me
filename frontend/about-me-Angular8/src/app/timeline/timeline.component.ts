@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineComponent implements OnInit {
 
-  timelineHeaders: { id: number, title: string, description: string, img: string }[] = [
+  timelineCategories: { id: number, title: string, description: string, img: string }[] = [
     {
       "id": 1,
       "title": "Work",

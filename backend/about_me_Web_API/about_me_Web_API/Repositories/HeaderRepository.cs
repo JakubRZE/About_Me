@@ -18,23 +18,17 @@ namespace about_me_Web_API.Repositories
             _appDbContext = appDbContext;
         }
 
-        public async Task<HeaderVM> GetHeaderAsync()
+
+        public async Task<HeaderVM> GetHeaderByIdAsync(int id)
         {
-            var header = await _appDbContext.Headers.Select(x => new HeaderVM
+            var result = await _appDbContext.Headers.Select(h => new HeaderVM
             {
-                Name = x.Name,
-                Description = x.Description,
-                Avatar = x.Avatar
+                Name = h.Name,
+                Description = h.Description,
+                Avatar = h.Avatar
             }).SingleAsync();
 
-            return header;
-        }
-
-
-
-        public void EditHeader()
-        {
-            throw new NotImplementedException();
+            return result;
         }
     }
 }

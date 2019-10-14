@@ -8,8 +8,6 @@ namespace about_me_Web_API.IRepositories
 {
     public interface IHeaderRepository
     {
-        Task<HeaderVM> GetHeaderAsync();
-
-        void EditHeader();
+        Task<HeaderVM> GetHeaderByIdAsync(int id);
     }
 }

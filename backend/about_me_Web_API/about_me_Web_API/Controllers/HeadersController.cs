@@ -23,18 +23,19 @@ namespace about_me_Web_API.Controllers
             _headerRepository = headerRepository;
         }
 
-        // GET: api/Headers
+        //// GET: api/Headers
         [HttpGet]
         public async Task<HeaderVM> GetHeaders()
         {
-            return await _headerRepository.GetHeaderAsync();
+            int headerId = 1;
+            return await _headerRepository.GetHeaderByIdAsync(headerId);
         }
 
         //// GET: api/Headers/5
         //[HttpGet("{id}")]
         //public async Task<ActionResult<Header>> GetHeader(int id)
         //{
-        //    var header = await _context.Headers.FindAsync(id);
+        //    var header = await _headerRepository.Headers.FindAsync(id);
 
         //    if (header == null)
         //    {

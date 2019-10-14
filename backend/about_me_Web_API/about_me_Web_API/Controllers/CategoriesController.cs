@@ -28,19 +28,19 @@ namespace about_me_Web_API.Controllers
             return await _context.Categories.ToListAsync();
         }
 
-        // GET: api/Categories/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
-        {
-            var category = await _context.Categories.FindAsync(id);
+        //// GET: api/Categories/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Category>> GetCategory(int id)
+        //{
+        //    var category = await _context.Categories.FindAsync(id);
 
-            if (category == null)
-            {
-                return NotFound();
-            }
+        //    if (category == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return category;
-        }
+        //    return category;
+        //}
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]

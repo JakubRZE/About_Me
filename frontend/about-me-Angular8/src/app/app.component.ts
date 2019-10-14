@@ -16,9 +16,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.timelineService.getHeader().subscribe({
-    //   next: header => this.header = header,
-    //   error: err => this.errorMessage = err
-    // });
+    this.timelineService.getHeader().subscribe({
+      next: header => this.header = header,
+      error: err => this.errorMessage = err
+    });
 }
 }

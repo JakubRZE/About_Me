@@ -7,9 +7,9 @@
                     <img src="https://media.licdn.com/dms/image/C4D03AQGJMbMqJ_LoKg/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=3F1STfGl3N4nPwCosOCjtLBjmeXLIKQmTUzp81XWH_o"
                         class="rounded-circle img-fluid profile" alt="Cinque Terre">
                 </div>
-                <div class="col-12 col-sm-8 profile-title">
-                    <h2>Jakub Rzepka</h2>
-                    <p>Graduated from Rzeszow University of Technology with a Master of Science degree.</p>
+                <div class="col-12 col-sm-8 profile-title" *ngIf='header'>
+                    <h2>{{header.Name}}</h2>
+                    <p>{{header.Description}}</p>
                 </div>
             </div>
         </div>
