@@ -20,5 +20,7 @@ export class AppComponent implements OnInit {
       next: header => this.header = header,
       error: err => this.errorMessage = err
     });
+
+    
 }
 }

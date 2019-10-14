@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { IHeader } from '../interface/IHeader';
 import { ICategory } from '../interface/ICategory';
+import { IEventDetail } from '../interface/IEventDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +28,12 @@ export class TimelineService {
     );
   }
 
-  // getProductById(id: number): Observable<IProduct | undefined> {
-  //   return this.getProducts().pipe(
-  //     map((products: IProduct[]) => products.find(p => p.productId === id))
-  //   );
-  // }
+  getEventsByCategoryId(categoryId: number): Observable<IEventDetail[] | undefined> {
+    return this.http.get<IEventDetail[]>(this.rootUrl + "/eventdetails/${categoryId}").pipe(
+      tap(data => console.log('Response: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(err: HttpErrorResponse) {
     // in a real world app, we may send the server to some remote logging infrastructure

@@ -1,5 +1,5 @@
 <div class="row text-center">
-    <div class="col-md-3 category-hover" *ngFor='let category of categories; let i = index'  ng-click="loadEvents(head)">
+    <div class="col-md-3 category-hover" *ngFor='let category of categories; let i = index'  (click)="onCategoryClicked(category)">
         <img class="bd-placeholder-img rounded-circle category-img pt-3"
         [class.rorate-r]="i % 2 == 0"
         [class.rorate-l]="i % 2 != 0"
@@ -11,4 +11,4 @@
 </div>
 <hr class="featurette-divider">
 
-<app-timeline-event></app-timeline-event>
+<app-timeline-event [id={{categoryId}}]>events loading...</app-timeline-event>

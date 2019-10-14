@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { IEventDetail } from './../../interface/IEventDetail';
+import { TimelineService } from './../../shared/timeline.service';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-timeline-event',
   templateUrl: './timeline-event.component.html',
   styleUrls: ['./timeline-event.component.css']
 })
-export class TimelineEventComponent implements OnInit {
+export class TimelineEventComponent {
 
   timelineEvents: { id: number, title: string, description: string, img: string }[] = [
     {
@@ -34,9 +37,24 @@ export class TimelineEventComponent implements OnInit {
     }
   ];
 
-  constructor() { }
-
-  ngOnInit() {
+  private _categoryId: number;
+  @Input('id') 
+  set categoryId(categoryId: number) {
+    this._categoryId = categoryId;
+    this.loadEvents(this._categoryId);
   }
+
+  events: IEventDetail[] = [];
+  errorMessage = '';
+
+  constructor(private timelineService: TimelineService) { }
+
+  loadEvents(categoryId: number): void {
+    this.timelineService.getEventsByCategoryId(this.categoryId).subscribe({
+      next: events => this.events = events,
+      error: err => this.errorMessage = err
+    });
+  }
+
 
 }
