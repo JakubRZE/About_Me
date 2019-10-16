@@ -1,5 +1,6 @@
 
-<div class="row border-bottom mt-5 pb-5" *ngFor='let event of events; let i = index' **ngIf="events && events.length">
+<div *ngIf="events && events.length">
+<div class="row border-bottom mt-5 pb-5" *ngFor='let event of events; let i = index'>
     <div class="col-md-7" [class.order-md-2]="i % 2 != 0">
         <h2>{{event.title}}</h2>
         <p>{{event.description}}</p>
@@ -10,3 +11,4 @@
         [title]='event.title'>
     </div>
 </div> 
+</div>

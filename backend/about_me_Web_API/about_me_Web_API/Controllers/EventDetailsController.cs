@@ -32,9 +32,9 @@ namespace about_me_Web_API.Controllers
 
         // GET: api/EventDetails/5
         [HttpGet("{id}")]
-        public async Task<IList<EventDetailsVM>> GetEventDetail(int categoryId)
+        public async Task<IList<EventDetailsVM>> GetEventDetail(int id)
         {
-            var events = await _eventDetailRepository.GetAllEvents(categoryId);
+            var events = await _eventDetailRepository.GetAllEvents(id);
 
             if (events == null)
             {

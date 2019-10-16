@@ -21,7 +21,7 @@ namespace about_me_Web_API.Repositories
 
         public async Task<IList<EventDetailsVM>> GetAllEvents(int categoryId)
         {
-            var result = await _appDbContext.EventDetails.Select(e => new EventDetailsVM
+            var result = await _appDbContext.EventDetails.Where(e => e.CategoryId == categoryId).Select(e => new EventDetailsVM
             {
                 Id = e.Id,
                 Title = e.Title,

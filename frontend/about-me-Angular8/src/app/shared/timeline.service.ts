@@ -11,6 +11,7 @@ import { IEventDetail } from '../interface/IEventDetail';
 })
 export class TimelineService {
   private rootUrl = 'http://localhost:59695/api';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -28,8 +29,8 @@ export class TimelineService {
     );
   }
 
-  getEventsByCategoryId(categoryId: number): Observable<IEventDetail[] | undefined> {
-    return this.http.get<IEventDetail[]>(this.rootUrl + "/eventdetails/${categoryId}").pipe(
+  getEventsByCategoryId(id: number): Observable<IEventDetail[] | undefined> {
+    return this.http.get<IEventDetail[]>(this.rootUrl + "/eventdetails/" + id).pipe(
       tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );

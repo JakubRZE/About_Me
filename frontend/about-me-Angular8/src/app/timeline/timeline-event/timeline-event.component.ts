@@ -37,12 +37,14 @@ export class TimelineEventComponent {
     }
   ];
 
-  private _categoryId: number;
+  private _id: number;
+
   @Input('id') 
-  set categoryId(categoryId: number) {
-    this._categoryId = categoryId;
-    this.loadEvents(this._categoryId);
+  set categoryId(id: number) {
+    this._id = id;
+    if(this._id !== 0) this.loadEvents(this._id);
   }
+
 
   events: IEventDetail[] = [];
   errorMessage = '';
@@ -50,11 +52,10 @@ export class TimelineEventComponent {
   constructor(private timelineService: TimelineService) { }
 
   loadEvents(categoryId: number): void {
-    this.timelineService.getEventsByCategoryId(this.categoryId).subscribe({
+    this.timelineService.getEventsByCategoryId(categoryId).subscribe({
       next: events => this.events = events,
       error: err => this.errorMessage = err
     });
   }
-
 
 }
