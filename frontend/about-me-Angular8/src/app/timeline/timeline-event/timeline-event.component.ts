@@ -42,7 +42,9 @@ export class TimelineEventComponent {
   @Input('id') 
   set categoryId(id: number) {
     this._id = id;
-    if(this._id !== 0) this.loadEvents(this._id);
+    if(this._id != null) {
+      this.loadEvents(this._id);
+    }
   }
 
 
@@ -51,7 +53,7 @@ export class TimelineEventComponent {
 
   constructor(private timelineService: TimelineService) { }
 
-  loadEvents(categoryId: number): void {
+loadEvents(categoryId: number): void {
     this.timelineService.getEventsByCategoryId(categoryId).subscribe({
       next: events => this.events = events,
       error: err => this.errorMessage = err
