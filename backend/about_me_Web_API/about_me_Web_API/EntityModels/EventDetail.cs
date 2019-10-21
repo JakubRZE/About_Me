@@ -19,7 +19,7 @@ namespace about_me_Web_API.EntityModels
 
         public DateTime Date { get; set; }
 
-        public Byte[] Avatar { get; set; }
+        public string Avatar { get; set; }
 
         //public int FileId { get; set; }
         //public virtual File File { get; set; }

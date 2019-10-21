@@ -29,9 +29,14 @@ namespace about_me_Web_API.Repositories
                 Date = e.Date,
                 AvatarUrl = e.Avatar.ToString(),
                 CategoryId = e.CategoryId
-            }).OrderBy(e => e.Date).ToListAsync();
+            }).OrderByDescending(e => e.Date).ToListAsync();
 
             return result;
+        }
+
+        public async Task<EventDetailsVM> AddEvent(EventDetailsVM eventDetails)
+        {
+            throw new NotImplementedException();
         }
     }
 }

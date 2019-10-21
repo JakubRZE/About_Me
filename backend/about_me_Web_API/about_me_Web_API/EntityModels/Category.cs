@@ -17,7 +17,7 @@ namespace about_me_Web_API.EntityModels
         [Required]
         public string Description { get; set; }
 
-        public Byte[] Avatar { get; set; }
+        public string Avatar { get; set; }
 
         //public int FileId { get; set; }
         //public virtual File File { get; set; }

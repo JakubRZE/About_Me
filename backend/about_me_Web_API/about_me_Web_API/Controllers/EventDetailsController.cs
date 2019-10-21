@@ -74,15 +74,15 @@ namespace about_me_Web_API.Controllers
         //    return NoContent();
         //}
 
-        //// POST: api/EventDetails
-        //[HttpPost]
-        //public async Task<ActionResult<EventDetail>> PostEventDetail(EventDetail eventDetail)
-        //{
-        //    _context.EventDetails.Add(eventDetail);
-        //    await _context.SaveChangesAsync();
+        // POST: api/EventDetails
+        [HttpPost]
+        public async Task<ActionResult<EventDetailsVM>> PostEventDetail(EventDetailsVM eventDetails)
+        {
+           var eventDetail = await _eventDetailRepository.AddEvent(eventDetails);
 
-        //    return CreatedAtAction("GetEventDetail", new { id = eventDetail.Id }, eventDetail);
-        //}
+           return eventDetail;
+           //return CreatedAtAction("GetEventDetail", new { id = eventDetail.Id }, eventDetail);
+        }
 
         //// DELETE: api/EventDetails/5
         //[HttpDelete("{id}")]

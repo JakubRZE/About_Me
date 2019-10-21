@@ -5,9 +5,10 @@
         <h2>{{event.Title}}</h2>
         <p>{{event.Description}}</p>
     </div>
-    <div class="col-md-5" [class.order-md-1]="i % 2 != 0">
-        <img class="img-fluid img-event"
-        src="{{ event?.Avatar }}"
+    <div class="col-md-5 img-div text-center" [class.order-md-1]="i % 2 != 0">
+        <img  *ngIf="event"
+        class="img-fluid img-event"
+        [src]="event.AvatarUrl || defaultUrl"
         [title]='event.Title'>
     </div>
 </div> 

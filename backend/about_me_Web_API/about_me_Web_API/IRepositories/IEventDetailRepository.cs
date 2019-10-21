@@ -9,5 +9,7 @@ namespace about_me_Web_API.IRepositories
     public interface IEventDetailRepository
     {
         Task<IList<EventDetailsVM>> GetAllEvents(int categoryId);
+
+        Task<EventDetailsVM> AddEvent(EventDetailsVM eventDetails);
     }
 }

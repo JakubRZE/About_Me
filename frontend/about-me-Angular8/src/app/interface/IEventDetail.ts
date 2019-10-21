@@ -3,6 +3,6 @@ export interface IEventDetail {
     Title: string;
     Description: string;
     Date: string;
-    Avatar: string;
+    AvatarUrl: string;
     CategoryId: number;
 }

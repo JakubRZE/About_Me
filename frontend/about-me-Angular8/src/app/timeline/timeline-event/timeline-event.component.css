@@ -1,4 +1,10 @@
 .img-event{
     object-fit: cover;
     object-position: center center;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.img-div{
+    background-color: #f8f8f9;
 }

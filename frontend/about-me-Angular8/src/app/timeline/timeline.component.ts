@@ -35,6 +35,7 @@ export class TimelineComponent implements OnInit {
       "img": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/201810/online-3412473_1920.jpeg?meGHIUut1mybIL3pem8eWqk34osmW3Zi"
     }
   ];
+  defaultUrl: string = "https://c.pxhere.com/photos/0f/1e/collaborate_collaboration_creative_design_designer_group_groupware_hands-911060.jpg!d";
 
   errorMessage = '';
   categories: ICategory[] = [];
@@ -51,6 +52,5 @@ export class TimelineComponent implements OnInit {
 
   onCategoryClicked(category: ICategory): void {
     this.categoryId = category.Id;
-    alert(this.categoryId);
   }
 }

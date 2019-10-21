@@ -10,6 +10,7 @@ import { IHeader } from './interface/IHeader';
 export class AppComponent implements OnInit {
   title = 'about-me-Angular8';
   errorMessage = '';
+  defaultUrl: string = 'https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_960_720.png';
   header: IHeader;
 
   constructor(private timelineService: TimelineService) {

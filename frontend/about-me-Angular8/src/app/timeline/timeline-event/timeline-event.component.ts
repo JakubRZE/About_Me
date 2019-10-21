@@ -38,7 +38,6 @@ export class TimelineEventComponent {
   ];
 
   private _id: number;
-
   @Input('id') 
   set categoryId(id: number) {
     this._id = id;
@@ -47,8 +46,8 @@ export class TimelineEventComponent {
     }
   }
 
-
   events: IEventDetail[] = [];
+  defaultUrl:string = 'http://wallpapersite.com/images/wallpapers/rock-climbing-2560x1440-adventure-minimal-4k-993.jpg';
   errorMessage = '';
 
   constructor(private timelineService: TimelineService) { }

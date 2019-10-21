@@ -26,7 +26,7 @@ namespace about_me_Web_API.Repositories
                 Title = c.Title,
                 Description = c.Description,
                 AvatarUrl = c.Avatar.ToString()
-            }).OrderBy(c => c.Title).ToListAsync();
+            }).OrderByDescending(c => c.Title).ToListAsync();
 
             return result;
         }
