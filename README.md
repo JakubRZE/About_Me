@@ -1,5 +1,5 @@
 # About Me - web application.
-ASP.NET MVC Core 2.2 / Web API / REST / Angular 8
+ASP.NET Core 2.2 / Web API / REST / Angular 8
 <br /><br />
 
 screenshot:
