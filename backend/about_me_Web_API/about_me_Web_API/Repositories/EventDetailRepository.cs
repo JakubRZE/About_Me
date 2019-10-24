@@ -21,16 +21,16 @@ namespace about_me_Web_API.Repositories
 
         public async Task<IList<EventDetailsVM>> GetAllEvents(int categoryId)
         {
-            var result = await _appDbContext.EventDetails.Where(e => e.CategoryId == categoryId).Select(e => new EventDetailsVM
+            var result = await _appDbContext.EventDetails.Where(e => e.CategoryId == categoryId).OrderByDescending(e => e.Date).Select(e => new EventDetailsVM
             {
                 Id = e.Id,
                 Title = e.Title,
                 Description = e.Description,
                 Place = e.Place,
-                Date = e.Date,
+                Date = e.Date.ToString("yyyy-MM"),
                 AvatarUrl = e.Avatar.ToString(),
                 CategoryId = e.CategoryId
-            }).OrderByDescending(e => e.Date).ToListAsync();
+            }).ToListAsync();
 
             return result;
         }

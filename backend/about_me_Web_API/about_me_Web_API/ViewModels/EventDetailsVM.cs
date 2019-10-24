@@ -15,7 +15,7 @@ namespace about_me_Web_API.ViewModels
 
         public string Place { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public string AvatarUrl { get; set; }
 

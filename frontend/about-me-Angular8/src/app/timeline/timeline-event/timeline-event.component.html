@@ -1,15 +1,15 @@
-
 <div *ngIf="events && events.length">
-<div class="row border-bottom mt-5 pb-5" *ngFor='let event of events; let i = index'>
-    <div class="col-md-7" [class.order-md-2]="i % 2 != 0">
-        <h2>{{event.Title}}</h2>
-        <p>{{event.Description}}</p>
+    <div class="row border-bottom mt-5 pb-5" *ngFor='let event of events; let i = index'>
+        <div class="col-md-7" [class.order-md-2]="i % 2 != 0">
+            <h3>{{event.Title}}</h3>
+            <div class="d-flex text-muted">
+                <h6 class="mr-auto"> {{event.Place}}</h6>
+                <h6> {{event.Date}} </h6>
+            </div>
+            <p class="mt-3">{{event.Description}}</p>
+        </div>
+        <div class="col-md-5 text-center" [class.order-md-1]="i % 2 != 0">
+            <img *ngIf="event" class="img-fluid img-event" [src]="event.AvatarUrl || defaultUrl" [title]='event.Title'>
+        </div>
     </div>
-    <div class="col-md-5 text-center" [class.order-md-1]="i % 2 != 0">
-        <img  *ngIf="event"
-        class="img-fluid img-event"
-        [src]="event.AvatarUrl || defaultUrl"
-        [title]='event.Title'>
-    </div>
-</div> 
 </div>
