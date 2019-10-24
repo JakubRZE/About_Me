@@ -13,6 +13,8 @@ namespace about_me_Web_API.ViewModels
 
         public string Description { get; set; }
 
+        public string Place { get; set; }
+
         public DateTime Date { get; set; }
 
         public string AvatarUrl { get; set; }

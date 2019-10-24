@@ -26,6 +26,7 @@ namespace about_me_Web_API.Repositories
                 Id = e.Id,
                 Title = e.Title,
                 Description = e.Description,
+                Place = e.Place,
                 Date = e.Date,
                 AvatarUrl = e.Avatar.ToString(),
                 CategoryId = e.CategoryId

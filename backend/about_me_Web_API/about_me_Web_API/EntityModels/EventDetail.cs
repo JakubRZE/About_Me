@@ -17,6 +17,8 @@ namespace about_me_Web_API.EntityModels
         [Required]
         public string Description { get; set; }
 
+        public string Place { get; set; }
+
         public DateTime Date { get; set; }
 
         public string Avatar { get; set; }
