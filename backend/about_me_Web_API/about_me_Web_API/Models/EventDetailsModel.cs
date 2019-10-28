@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace about_me_Web_API.ViewModels
+namespace about_me_Web_API.Models
 {
-    public class EventDetailsVM
+    public class EventDetailsModel
     {
         public int Id { get; set; }
 

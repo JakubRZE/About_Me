@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using about_me_Web_API.DAL;
 using about_me_Web_API.EntityModels;
 using about_me_Web_API.IRepositories;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 
 namespace about_me_Web_API.Controllers
 {
@@ -32,16 +32,24 @@ namespace about_me_Web_API.Controllers
 
         // GET: api/EventDetails/5
         [HttpGet("{id}")]
-        public async Task<IList<EventDetailsVM>> GetEventDetail(int id)
+        public async Task<ActionResult<IList<EventDetailsModel>>> GetEventDetail(int id)
         {
-            var events = await _eventDetailRepository.GetAllEvents(id);
-
-            if (events == null)
+            try
             {
-                //return NotFound();
-            }
+                var events = await _eventDetailRepository.GetAllEvents(id);
 
-            return events;
+                if (events == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(events);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database error");
+            }
+          
         }
 
         //// PUT: api/EventDetails/5
@@ -76,7 +84,7 @@ namespace about_me_Web_API.Controllers
 
         // POST: api/EventDetails
         [HttpPost]
-        public async Task<ActionResult<EventDetailsVM>> PostEventDetail(EventDetailsVM eventDetails)
+        public async Task<ActionResult<EventDetailsModel>> PostEventDetail(EventDetailsModel eventDetails)
         {
            var eventDetail = await _eventDetailRepository.AddEvent(eventDetails);
 

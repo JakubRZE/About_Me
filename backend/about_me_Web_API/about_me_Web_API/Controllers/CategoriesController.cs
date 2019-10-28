@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using about_me_Web_API.DAL;
 using about_me_Web_API.EntityModels;
 using about_me_Web_API.IRepositories;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 
 namespace about_me_Web_API.Controllers
 {
@@ -25,10 +25,19 @@ namespace about_me_Web_API.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<IList<CategoryVM>> GetCategories()
+        public async Task<ActionResult<IList<CategoryModel>>> GetCategories()
         {
-            var category = await _categoryRepository.GetAllCategoriesAsync();
-            return category;
+            try
+            {
+                var category = await _categoryRepository.GetAllCategoriesAsync();
+
+                return Ok(category);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database error");
+            }
+            
         }
 
         //// GET: api/Categories/5

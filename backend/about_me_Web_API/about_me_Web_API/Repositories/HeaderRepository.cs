@@ -1,6 +1,6 @@
 ﻿using about_me_Web_API.DAL;
 using about_me_Web_API.IRepositories;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,9 +19,9 @@ namespace about_me_Web_API.Repositories
         }
 
 
-        public async Task<HeaderVM> GetHeaderByIdAsync(int id)
+        public async Task<HeaderModel> GetHeaderByIdAsync(int id)
         {
-            var result = await _appDbContext.Headers.Select(h => new HeaderVM
+            var result = await _appDbContext.Headers.Select(h => new HeaderModel
             {
                 Name = h.Name,
                 Description = h.Description,

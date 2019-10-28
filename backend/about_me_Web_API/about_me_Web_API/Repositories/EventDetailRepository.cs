@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using about_me_Web_API.DAL;
 using about_me_Web_API.IRepositories;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace about_me_Web_API.Repositories
@@ -19,9 +19,9 @@ namespace about_me_Web_API.Repositories
         }
 
 
-        public async Task<IList<EventDetailsVM>> GetAllEvents(int categoryId)
+        public async Task<IList<EventDetailsModel>> GetAllEvents(int categoryId)
         {
-            var result = await _appDbContext.EventDetails.Where(e => e.CategoryId == categoryId).OrderByDescending(e => e.Date).Select(e => new EventDetailsVM
+            var result = await _appDbContext.EventDetails.Where(e => e.CategoryId == categoryId).OrderByDescending(e => e.Date).Select(e => new EventDetailsModel
             {
                 Id = e.Id,
                 Title = e.Title,
@@ -35,7 +35,7 @@ namespace about_me_Web_API.Repositories
             return result;
         }
 
-        public async Task<EventDetailsVM> AddEvent(EventDetailsVM eventDetails)
+        public async Task<EventDetailsModel> AddEvent(EventDetailsModel eventDetails)
         {
             throw new NotImplementedException();
         }

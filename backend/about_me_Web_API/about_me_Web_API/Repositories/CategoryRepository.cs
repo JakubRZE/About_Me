@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace about_me_Web_API.Repositories
@@ -18,9 +18,9 @@ namespace about_me_Web_API.Repositories
             _appDbContext = appDbContext;
         }
 
-        public async Task<IList<CategoryVM>> GetAllCategoriesAsync()
+        public async Task<IList<CategoryModel>> GetAllCategoriesAsync()
         {
-            var result = await _appDbContext.Categories.Select(c => new CategoryVM
+            var result = await _appDbContext.Categories.Select(c => new CategoryModel
             {
                 Id = c.Id,
                 Title = c.Title,

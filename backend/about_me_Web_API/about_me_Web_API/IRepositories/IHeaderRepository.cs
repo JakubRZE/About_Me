@@ -1,4 +1,4 @@
-﻿using about_me_Web_API.ViewModels;
+﻿using about_me_Web_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,6 @@ namespace about_me_Web_API.IRepositories
 {
     public interface IHeaderRepository
     {
-        Task<HeaderVM> GetHeaderByIdAsync(int id);
+        Task<HeaderModel> GetHeaderByIdAsync(int id);
     }
 }

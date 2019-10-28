@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using about_me_Web_API.DAL;
 using about_me_Web_API.EntityModels;
 using about_me_Web_API.IRepositories;
-using about_me_Web_API.ViewModels;
+using about_me_Web_API.Models;
 
 namespace about_me_Web_API.Controllers
 {
@@ -25,10 +25,25 @@ namespace about_me_Web_API.Controllers
 
         //// GET: api/Headers
         [HttpGet]
-        public async Task<HeaderVM> GetHeaders()
+        public async Task<ActionResult<HeaderModel>> GetHeaders()
         {
-            int headerId = 1;
-            return await _headerRepository.GetHeaderByIdAsync(headerId);
+            try
+            {
+                const int headerId = 1;
+                var header = await _headerRepository.GetHeaderByIdAsync(headerId);
+
+                if (header == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(header);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database error");
+            }
+          
         }
 
         //// GET: api/Headers/5

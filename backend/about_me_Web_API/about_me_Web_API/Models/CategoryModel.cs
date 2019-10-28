@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using about_me_Web_API.EntityModels;
 
-namespace about_me_Web_API.ViewModels
+namespace about_me_Web_API.Models
 {
-    public class CategoryVM
+    public class CategoryModel
     {
         public int Id { get; set; }
 
