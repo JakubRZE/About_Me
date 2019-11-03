@@ -38,10 +38,7 @@ namespace about_me_Web_API.Controllers
             {
                 var events = await _eventDetailRepository.GetAllEvents(id);
 
-                if (events == null)
-                {
-                    return NotFound();
-                }
+                if (events == null) return NotFound();
 
                 return Ok(events);
             }
