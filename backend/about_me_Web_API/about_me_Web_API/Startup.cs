@@ -57,11 +57,6 @@ namespace about_me_Web_API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options =>
-            options.WithOrigins("http://localhost:4200")
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-
             app.Use(async (context, next) =>
                 {
                     await next();

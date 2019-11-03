@@ -1,3 +1,4 @@
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -10,28 +11,24 @@ import { IEventDetail } from '../interface/IEventDetail';
   providedIn: 'root'
 })
 export class TimelineService {
-  // private rootUrl = 'http://localhost:59695/api';
-  private rootUrl = 'https://jakubrzepkaabout.azurewebsites.net/api';
+  rootUrl = environment.rootUrl;
 
   constructor(private http: HttpClient) { }
 
   getHeader(): Observable<IHeader> {
     return this.http.get<IHeader>(this.rootUrl + "/headers").pipe(
-      tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getCategories(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(this.rootUrl + "/categories").pipe(
-      tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getEventsByCategoryId(id: number): Observable<IEventDetail[] | undefined> {
     return this.http.get<IEventDetail[]>(this.rootUrl + "/eventdetails/" + id).pipe(
-      tap(data => console.log('Response: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
