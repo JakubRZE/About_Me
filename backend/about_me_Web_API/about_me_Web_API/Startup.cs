@@ -38,7 +38,7 @@ namespace about_me_Web_API
             .AddJsonOptions(options => {
                 var resolver = options.SerializerSettings.ContractResolver;
                 if (resolver != null)
-                    (resolver as DefaultContractResolver).NamingStrategy = null;
+                    ((DefaultContractResolver) resolver).NamingStrategy = null;
             });
 
             services.AddTransient<IHeaderRepository, HeaderRepository>();

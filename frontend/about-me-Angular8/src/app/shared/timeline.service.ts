@@ -10,7 +10,8 @@ import { IEventDetail } from '../interface/IEventDetail';
   providedIn: 'root'
 })
 export class TimelineService {
-  private rootUrl = 'http://localhost:59695/api';
+  // private rootUrl = 'http://localhost:59695/api';
+  private rootUrl = 'https://jakubrzepkaabout.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

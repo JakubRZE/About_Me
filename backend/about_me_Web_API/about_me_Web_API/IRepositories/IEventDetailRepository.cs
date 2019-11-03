@@ -10,6 +10,6 @@ namespace about_me_Web_API.IRepositories
     {
         Task<IList<EventDetailsModel>> GetAllEvents(int categoryId);
 
-        Task<EventDetailsModel> AddEvent(EventDetailsModel eventDetails);
+        //Task<EventDetailsModel> AddEvent(EventDetailsModel eventDetails);
     }
 }

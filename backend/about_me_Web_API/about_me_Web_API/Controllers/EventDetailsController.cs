@@ -80,14 +80,13 @@ namespace about_me_Web_API.Controllers
         //}
 
         // POST: api/EventDetails
-        [HttpPost]
-        public async Task<ActionResult<EventDetailsModel>> PostEventDetail(EventDetailsModel eventDetails)
-        {
-           var eventDetail = await _eventDetailRepository.AddEvent(eventDetails);
+        //[HttpPost]
+        //public async Task<ActionResult<EventDetailsModel>> PostEventDetail(EventDetailsModel eventDetails)
+        //{
+        //   var eventDetail = await _eventDetailRepository.AddEvent(eventDetails);
 
-           return eventDetail;
-           //return CreatedAtAction("GetEventDetail", new { id = eventDetail.Id }, eventDetail);
-        }
+        //   return eventDetail;
+        //}
 
         //// DELETE: api/EventDetails/5
         //[HttpDelete("{id}")]

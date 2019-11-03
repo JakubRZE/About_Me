@@ -35,9 +35,9 @@ namespace about_me_Web_API.Repositories
             return result;
         }
 
-        public async Task<EventDetailsModel> AddEvent(EventDetailsModel eventDetails)
-        {
-            throw new NotImplementedException();
-        }
+        //public async Task<EventDetailsModel> AddEvent(EventDetailsModel eventDetails)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
