@@ -27,7 +27,7 @@ namespace about_me_Web_API.Repositories
                 Title = e.Title,
                 Description = e.Description,
                 Place = e.Place,
-                Date = e.Date.ToString("yyyy-MM"),
+                Date = e.Date.ToString("yyyy"),
                 AvatarUrl = e.Avatar.ToString(),
                 CategoryId = e.CategoryId
             }).ToListAsync();

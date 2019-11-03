@@ -47,7 +47,7 @@ namespace about_me_Web_API.Controllers
             }
             catch (Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database error");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Database error");
             }
           
         }
