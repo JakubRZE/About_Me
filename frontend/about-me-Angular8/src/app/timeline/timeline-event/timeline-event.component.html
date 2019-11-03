@@ -1,3 +1,16 @@
+
+<div class="d-flex flex-column pt-5 mt-5" *ngIf="events.length < 1">
+    <div class="d-flex mb-2 mt-3">
+            <i class="far fa-envelope"></i> <p><a href="#">jakub.rzm@gmail.com</a></p>
+    </div>
+    <div class="d-flex mb-2">
+            <i class="fab fa-github"></i> <p><a href="https://github.com/JakubRZE" target="_blank">github.com/JakubRZE</a></p>
+    </div>
+    <div class="d-flex mb-2">
+            <i class="fab fa-linkedin"></i><p><a href="https://www.linkedin.com/in/jakub-m-rzepka" target="_blank">linkedin.com/in/jakub-m-rzepka</a></p> 
+    </div>
+</div>
+
 <div *ngIf="events && events.length">
     <div class="row border-bottom mt-5 pb-5" *ngFor='let event of events; let i = index'>
         <div class="col-md-7" [class.order-md-2]="i % 2 != 0">
@@ -13,3 +26,17 @@
         </div>
     </div>
 </div>
+
+<footer class="container footer text-center border-top" *ngIf="events && events.length">
+<div class="d-flex justify-content-center p-4">
+    <div class="d-flex pr-5">
+            <i class="far fa-envelope"></i> <p><a href="#">jakub.rzm@gmail.com</a></p>
+    </div>
+    <div class="d-flex pr-5">
+            <i class="fab fa-github"></i> <p><a href="https://github.com/JakubRZE" target="_blank">github.com/JakubRZE</a></p>
+    </div>
+    <div class="d-flex pr-5">
+            <i class="fab fa-linkedin"></i><p><a href="https://www.linkedin.com/in/jakub-m-rzepka" target="_blank">linkedin.com/in/jakub-m-rzepka</a></p> 
+    </div>
+</div>
+</footer>

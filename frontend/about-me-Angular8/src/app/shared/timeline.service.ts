@@ -11,7 +11,6 @@ import { IEventDetail } from '../interface/IEventDetail';
 })
 export class TimelineService {
   private rootUrl = 'http://localhost:59695/api';
-  
 
   constructor(private http: HttpClient) { }
 

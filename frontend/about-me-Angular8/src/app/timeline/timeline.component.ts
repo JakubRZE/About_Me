@@ -40,6 +40,7 @@ export class TimelineComponent implements OnInit {
   errorMessage = '';
   categories: ICategory[] = [];
   categoryId: number;
+  selectedCategory: ICategory;
 
   constructor(private timelineService: TimelineService) { }
 
@@ -51,6 +52,7 @@ export class TimelineComponent implements OnInit {
   }
 
   onCategoryClicked(category: ICategory): void {
+    this.selectedCategory = category; 
     this.categoryId = category.Id;
   }
 }

@@ -5,3 +5,27 @@
     max-width: 400px;
     max-height: 300px;
 }
+
+a{
+    font-size: 28px;
+    text-decoration: none;
+    color: inherit;
+    padding-left: 30px;
+}
+
+i{
+    font-size: 48px;
+}
+
+
+
+footer a{
+    font-size: 18px;
+    text-decoration: none;
+    color: inherit;
+    padding-left: 15px;
+}
+
+footer i{
+    font-size: 32px;
+}

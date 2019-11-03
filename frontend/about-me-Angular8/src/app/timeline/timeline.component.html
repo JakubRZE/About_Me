@@ -1,5 +1,5 @@
 <div class="row text-center">
-    <div class="col-md-3 category-hover" *ngFor='let category of categories; let i = index'  (click)="onCategoryClicked(category)">
+    <div class="col-md-3 category-hover" [ngClass]="{'category-active': selectedCategory == category}" *ngFor='let category of categories; let i = index'  (click)="onCategoryClicked(category)">
         <img *ngIf="category"
         class="bd-placeholder-img rounded-circle category-img"
         [class.rorate-r]="i % 2 == 0"
